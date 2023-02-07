@@ -1,12 +1,15 @@
 span{
     font-weight: bold;
 }
-.cards {
-    
-        border: 0.2em solid;
-        
-        width: 50%;
-        
-        margin: auto;
-        
-  }
+
+#cards {
+    background: #e0ccff;
+    text-align: center;
+}
+.card {
+    display: inline-block;
+    height:80px;
+    margin:10px;
+    width: 20%;
+    background: #a065ff;
+}

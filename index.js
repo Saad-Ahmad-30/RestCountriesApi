@@ -1,8 +1,4 @@
-const cardEL=document.querySelector("#cards")
-const card=document.createElement("div");
-card.classList="card";
-card.className="card";
-
+let newCard='';
 async function fetchText() {
     let response = await fetch('https://restcountries.com/v3.1/all');
     return await response.json();
@@ -17,15 +13,13 @@ then((data)=>{
         // console.log(`Country Capital:${element.capital}`);
         // console.log(`Country Region:${element.region}`);
         // console.log(`Country flag:${element.flags.png}`);
-        
-        const newCard=`<img src="${element.flags.png}" alt="flag">
+        newCard+=`<div class="card"><img src="${element.flags.png}" alt="flag">
         <h3><span>${element.name.common}</span></h3>
         <p><span>Population: </span>${element.population}</p>
         <p><span>Region: </span>${element.region}</p>
-        <p><span>Capital: </span>${element.capital}</p>`;
-        card.innerHTML+=newCard;
-        cardEL.appendChild(card);
+        <p><span>Capital: </span>${element.capital}</p></div>`;
     
     });
+    var cardEL=document.querySelector("#cards")
+    cardEL.innerHTML=`${newCard}`;
 })
-
