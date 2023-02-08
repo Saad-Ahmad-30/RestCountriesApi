@@ -3,14 +3,9 @@ let cardEL=document.querySelector(".countries-box");
 const fetchText=async ()=> {
     try{
     let response = await fetch('https://restcountries.com/v3.1/all');
- let data =await response.json();
+     let data =await response.json();
 
     data.forEach((element) => {
-        // console.log(`Country Name:${element.name.common}`);
-        // console.log(`Country population:${element.population}`);
-        // console.log(`Country Capital:${element.capital}`);
-        // console.log(`Country Region:${element.region}`);
-        // console.log(`Country flag:${element.flags.png}`);
         newCard+=`
         <div class="country-item">
         <div class="flag"> 
@@ -22,15 +17,52 @@ const fetchText=async ()=> {
         <p><span>Region: </span>${element.region}</p>
         <p><span>Capital: </span>${element.capital}</p>
         </div>
-        </div>`;
+        </div>
+        `;
     });
     cardEL.innerHTML=`${newCard}`;
+   cardEL.addEventListener("click",()=>{
+     
+
+
+   })
+    
 }
    catch(error){console.log(error)}
 }
 
 
-fetchText();
+
+
+
+ fetchText();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function toggleTheme() {
     
     var currentTheme = document.documentElement.getAttribute('data-theme');
@@ -49,3 +81,16 @@ function toggleTheme() {
     document.documentElement.setAttribute('data-theme', targetTheme);
 
 }
+
+
+
+
+function back() {
+    const main = document.getElementsByClassName('main');
+    const section = document.getElementsByClassName('details-section');
+
+    section[0].style.display = "none";
+    main[0].style.display = "block";
+
+}
+
