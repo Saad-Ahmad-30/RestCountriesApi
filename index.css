@@ -35,13 +35,6 @@ span{
 }
 
 
-.description{
-    margin-top: 0px;
-    text-align:left;
-    margin-left:15px;
-    margin-bottom: 0px;
-    padding: 0px;
-}
 .flag{
     width: 18rem;
     height: 12rem;
@@ -187,13 +180,13 @@ input{
 }
 
 .country-item h3{
-    padding: 1rem;
+    padding: 0rem;
 }
 
 .country-item ul{
     list-style-type: none;
     /* background-color: yellowgreen; */
-    padding: 1rem;
+    padding: 0rem;
 }
 
 .details-grid{
@@ -215,12 +208,7 @@ input{
     grid-column: 1/5;
 }
 
-.text-grid > .stats {
-    background-color: rgb(79, 152, 216);
-    list-style: none;
-    grid-column: 1/5;
-    height: 200px;
-}
+
 
 .text-grid > .border-countries-box{
     /* background-color: rgb(245, 145, 145); */
@@ -239,7 +227,7 @@ input{
     font-weight: bold;
 }
 
-.text-grid > p > span{
+.text-grid > p{
     font-weight:normal;
 }
 
@@ -257,6 +245,7 @@ input{
     /* grid-row: 4/5; */
 }
 
+
 .neighboring-countries{
     list-style: none;
     display: contents;
@@ -266,16 +255,17 @@ input{
 .border-countries-box{
     font-weight: bold;
     margin-top: 1em;
+    grid-column: 0.5;
 }
 
-.neighboring-countries > li {
+.neighboring-countries > p {
     border: 2px solid #efefef;
     border-radius: 2px;
     padding: 0.25em 1em;
     align-self: center;
 }
 
-.neighboring-countries > li:hover {
+.neighboring-countries > p:hover {
     cursor: pointer;
 }
 
@@ -283,7 +273,7 @@ input{
     display: none;
 }
 
-.back-btn{
+#back-btn{
     padding: 1em 4em;
     margin: 1.5em;
     border: 0px;
@@ -295,6 +285,7 @@ input{
 @media screen and (max-width:700px){
     .details-flag{
         grid-column: 1/3;
+        
     }
     .text-grid > p:nth-child(even) {
         grid-column: 1/5;
@@ -342,3 +333,26 @@ input{
             grid-template-columns: 1fr 1fr;
         }
     }
+
+.description{
+    margin-left: 20px;
+    padding-bottom: 50px;
+}
+
+
+.description2{
+    margin-left: 30px;
+    padding-bottom: 50px;
+    column-count: 2;
+    column-gap: 50px;
+    
+}
+
+.headingEl{
+margin-top: 20px;
+margin-bottom: 10px;
+
+}
+ul{
+    margin-bottom: 30px;
+}

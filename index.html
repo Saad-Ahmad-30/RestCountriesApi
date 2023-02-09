@@ -13,7 +13,7 @@
 <body>
     <header class="header">
         <h2>Where in the World?</h2>
-        <div class="theme-box" onclick="toggleTheme()">
+        <div class="theme-box">
             <ion-icon name="moon-outline"></ion-icon>
             <p id="dark-mode-text">Dark Mode</p>
         </div>
@@ -23,13 +23,8 @@
         <form class="input-form" id="input-form">
             
             <input type="text" id="search" name="search" placeholder="Search for a country...">
-            <select name="regions" id="regions" placeholder="Filter by region" onchange="selectRegions()">
-                <option value="placeholder" disabled selected>Filter by Region</option>
-                <option value="africa">Africa</option>
-                <option value="america">America</option>
-                <option value="asia">Asia</option>
-                <option value="europe">Europe</option>
-                <option value="oceania">Oceania</option>
+            <select name="regions" id="regions" placeholder="Filter by region">
+            <option value="none" selected disabled hidden>Select an Option</option>
             </select>
         </form>
         <section class="countries-box" id="countries-box">
@@ -45,7 +40,9 @@
         </section>
     </main>
 
+
     <script src="index.js"></script>
+    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
