@@ -23,7 +23,7 @@ const fetchText=async (url)=> {
         newCard.innerHTML=
         `<div class="country-item">
         <div class="flag"> 
-        <img src="${element.flags.png}" alt="flag" width="270" height="160">
+        <img src="${element.flags.png}" alt="flag" width="288" height="175">
         </div>
         <div class="description">
         <h3><span>${element.name.common}</span></h3>

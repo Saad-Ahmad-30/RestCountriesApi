@@ -114,7 +114,7 @@ input{
 
 .input-form{
     display: flex;
-    align-items: center;
+    align-items: left;
     justify-content: space-between;
     /* background-color: yellowgreen; */
 }
@@ -306,24 +306,28 @@ input{
     .input-form{
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: left;
+
     }
 
     .input-form input{
-        margin-left: 0;
+        margin-right: 0;
         padding: 1em;
-        position: sticky;
-        top: 0;
+        margin-left: 22px;
+        width:30%;
+        
+        
     }
 
     .input-form select{
         margin-right: 0;
-        position: sticky;
-        top: 0;
+        width: 30%;
+        margin-left: 22px;
     }
 
 ::placeholder{
-        text-align: center;}
+        text-align: left;
+    }
     
         .neighboring-countries {
             list-style: none;
