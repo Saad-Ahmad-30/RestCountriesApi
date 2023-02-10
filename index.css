@@ -13,6 +13,7 @@ html[data-theme='light']{
     --headerColor: white;
     --textColor: black;
     --shadowColor: #dfdede;
+
 }
 
 html[data-theme='dark']{
@@ -27,7 +28,7 @@ body{
     font-family: 'Nunito Sans', sans-serif;
     background-color: var(--bgColor);
     color: var(--textColor);
-    transition: 0.2s;
+    transition: 0.4s;
 }
 
 span{
