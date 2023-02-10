@@ -11,22 +11,25 @@
 
 </head>
 <body>
+  
     <header class="header">
         <h2>Where in the World?</h2>
         <div class="theme-box">
             <ion-icon name="moon-outline"></ion-icon>
             <p id="dark-mode-text">Dark Mode</p>
         </div>
+        
     </header>
+    <form class="input-form" id="input-form">
+            
+        <input type="text" id="search" name="search" placeholder="Search for a country...">
+        <select name="regions" id="regions" placeholder="Filter by region">
+        <option value="none" selected disabled hidden>Select an Option</option>
+        </select>
+    </form>
 
     <main class="main">
-        <form class="input-form" id="input-form">
-            
-            <input type="text" id="search" name="search" placeholder="Search for a country...">
-            <select name="regions" id="regions" placeholder="Filter by region">
-            <option value="none" selected disabled hidden>Select an Option</option>
-            </select>
-        </form>
+      
         <section class="countries-box" id="countries-box">
             <!-- <div class="country-item">
                 <img src="https://flagcdn.com/de.svg" class="flag" id="flag">
