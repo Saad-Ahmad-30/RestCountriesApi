@@ -35,7 +35,7 @@ const fetchText=async (url)=> {
         `;
 
         newCard.addEventListener("click",()=> {
-        window.location.assign("file:///C:/Users/shayan/Desktop/RestCountriesProj/details.html");
+        window.location.assign("./details.html");
          sessionStorage.setItem("countryName",element.name.common);
         });
         cardEL.appendChild(newCard);
