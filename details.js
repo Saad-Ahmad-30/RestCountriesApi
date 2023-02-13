@@ -1,4 +1,6 @@
+
 let cardEL = document.querySelector(".countries-box");
+const toggleEl = document.querySelector(".theme-box");
 const fetchText = async () => {
   try {
     var countryName = sessionStorage.getItem("countryName");
@@ -48,7 +50,8 @@ const fetchText = async () => {
   }
 };
 
-const toggleEl = document.querySelector(".theme-box");
+
+
 
 toggleEl.addEventListener("click", () => {
   let currentTheme = document.documentElement.getAttribute("data-theme");
@@ -71,7 +74,9 @@ toggleEl.addEventListener("click", () => {
 
   document.documentElement.setAttribute("data-theme", targetTheme);
   localStorage.setItem("theme", targetTheme);
-});
+})
+
+
 
 window.addEventListener("load", () => {
   let theme = localStorage.getItem("theme");

@@ -1,9 +1,11 @@
+
+
 const cardEL = document.querySelector(".countries-box");
 const backButton = document.getElementById("back-btn");
 const filter = document.getElementById("regions");
 const form = document.getElementById("input-form");
 const searchInput = document.getElementById("search");
-
+const toggleEl = document.querySelector(".theme-box");
 const showData = () => {
   let url = "https://restcountries.com/v3.1/all";
   fetchText(url);
@@ -23,7 +25,7 @@ const fetchText = async (url) => {
         </div>
         <div class="description">
         <h3><span>${element.name.common}</span></h3>
-        <p><span>Population: </span>${element.population}</p>
+        <p><span>Population: </span>${element.population.toLocaleString()}</p>
         <p><span>Region: </span>${element.region}</p>
         <p><span>Capital: </span>${element.capital}</p>
         </div>
@@ -43,7 +45,7 @@ const fetchText = async (url) => {
   }
 };
 
-const toggleEl = document.querySelector(".theme-box");
+
 
 toggleEl.addEventListener("click", () => {
   let currentTheme = document.documentElement.getAttribute("data-theme");
@@ -90,7 +92,13 @@ window.addEventListener("load", () => {
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const searchTerm = searchInput.value;
+  let searchTerm = searchInput.value;
+  console.log(searchTerm);
+  if(!searchTerm)
+  {
+    showData();
+  } 
+else {
   const response = await fetch(
     `https://restcountries.com/v2/name/${searchTerm}`
   );
@@ -109,18 +117,33 @@ form.addEventListener("submit", async (event) => {
     titleElement.classList.add("headingEl");
     titleElement.textContent = country.name;
     const listElement = document.createElement("ul");
+
     listElement.innerHTML = `
-      <li><span>Population: </span>${country.population.toLocaleString()}</li>
+     <div class="search-card"> <li><span>Population: </span>${country.population.toLocaleString()}</li>
       <li><span>Region: </span>${country.region}</li>
       <li><span>Capital: </span>${country.capital}</li>
-    `;
+   </div> `;
 
     countryElement.appendChild(flagElement);
     countryElement.appendChild(titleElement);
     countryElement.appendChild(listElement);
     cardEL.appendChild(countryElement);
+
   }
-});
+
+  cardEL.addEventListener("click", () => {
+    console.log(searchTerm);
+    window.location.assign("./details.html");
+    sessionStorage.setItem("countryName",searchTerm);
+    
+  });
+
+}});
+
+
+
+
+
 
 const filterByRegion = async () => {
   let Url = "https://restcountries.com/v3.1/all";
@@ -149,6 +172,16 @@ filter.addEventListener("change", (e) => {
   const Url = `https://restcountries.com/v3.1/region/${SearchName}?fullText=true`;
   fetchText(Url);
 });
+
+const homePage=document.getElementById("home-page");
+homePage.addEventListener("click",() => {
+  window.location.assign(
+    "./index.html"
+  )});
+
+
+
+
 
 showData();
 filterByRegion();

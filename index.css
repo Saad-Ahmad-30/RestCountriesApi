@@ -7,7 +7,7 @@
 }
 
 html[data-theme="light"] {
-  --bgColor: hsl(0, 0%, 98%);
+  --bgColor: hwb(0 98% 2%);
   --headerColor: white;
   --textColor: black;
   --shadowColor: #dfdede;
@@ -31,6 +31,12 @@ body {
 span {
   font-weight: bold;
 }
+
+.header h2:hover{
+  cursor: pointer;
+}
+
+
 
 .flag {
   width: 18rem;
@@ -359,7 +365,12 @@ input {
 .headingEl {
   margin-top: 20px;
   margin-bottom: 10px;
+  margin-left: 15px;
 }
 ul {
   margin-bottom: 30px;
+}
+.search-card{
+  margin-left:15px;
+  margin-bottom: 45px;
 }
