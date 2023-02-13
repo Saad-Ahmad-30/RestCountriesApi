@@ -11,7 +11,7 @@
 
 </head>
 <body>
-  
+    <div class="nav-bar">
     <header class="header">
         <h2>Where in the World?</h2>
         <div class="theme-box">
@@ -20,16 +20,16 @@
         </div>
         
     </header>
-    <form class="input-form" id="input-form">
-            
-        <input type="text" id="search" name="search" placeholder="Search for a country...">
-        <select name="regions" id="regions" placeholder="Filter by region">
-        <option value="none" selected disabled hidden>Filter by Region</option>
-        </select>
-    </form>
-
+    
     <main class="main">
-      
+        <form class="input-form" id="input-form">
+            <input type="text" id="search" name="search" placeholder="Search for a country...">
+            <select name="regions" id="regions" placeholder="Filter by region">
+            <option value="none" selected disabled hidden>Filter by Region</option>
+            </select>
+        </form>
+
+
         <section class="countries-box" id="countries-box">
             <!-- <div class="country-item">
                 <img src="https://flagcdn.com/de.svg" class="flag" id="flag">
@@ -42,7 +42,8 @@
             </div>  -->
         </section>
     </main>
-
+    </div>
+        
 
     <script src="index.js"></script>
     
