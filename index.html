@@ -1,53 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light"></html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
-    <title>Rest Countries API</title>
-    <title>Home</title>
-
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:300,regular,500,600,700,800"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
     <div class="nav-bar">
-    <header class="header">
-        <h2 id="home-page">Where in the World?</h2>
-        <div class="theme-box">
-            <ion-icon name="moon-outline"></ion-icon>
-            <p id="dark-mode-text">Dark Mode</p>
-        </div>
-        
+    <header class="header-container">
+      <div class="header-content">
+        <h2 class="title"><a href="/">Where in the world?</a></h2>
+        <p class="theme-changer"><i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode</p>
+      </div>
     </header>
-    
-    <main class="main">
-        <form class="input-form" id="input-form">
-            <input type="text" id="search" name="search" placeholder="Search for a country...">
-            <select name="regions" id="regions" placeholder="Filter by region">
-            <option value="none" selected disabled hidden>Filter by Region</option>
-            </select>
-        </form>
-
-
-        <section class="countries-box" id="countries-box">
-            <!-- <div class="country-item">
-                <img src="https://flagcdn.com/de.svg" class="flag" id="flag">
-                <h3>Germany</h3>
-                <ul>
-                    <li>Population: 3746234827</li>
-                    <li>Region: Europe</li>
-                    <li>Capital: Berlin</li>
-                </ul>
-            </div>  -->
-        </section>
-    </main>
     </div>
-        
-
-    <script src="index.js"></script>
-    
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
+    <main>
+      <div class="search-filter-container">
+        <div class="search-container">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search for a country...">
+        </div>
+        <select class="filter-by-region">
+          <option hidden>Filter by Region</option>
+          <option value="Africa">Africa</option>
+          <option value="America">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </div>
+      <div class="countries-container"></div>
+    </main>
+  </body>
 </html>
