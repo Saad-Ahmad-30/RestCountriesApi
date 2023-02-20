@@ -1,4 +1,3 @@
-
 let cardEL = document.querySelector(".countries-box");
 const toggleEl = document.querySelector(".theme-box");
 const fetchText = async () => {
@@ -33,14 +32,24 @@ const fetchText = async () => {
               Object.values(element.languages)[0]
             }</p>
        
-       <div class="neighboring-countries">
-           <div class="border-countries-box">
-           <p><span>Border Countries:</span> ${
-             element.borders === undefined ? "No borders" : element.borders
-           }
-           </p>
-           </div>
-       </div>
+            <div class="neighboring-countries">
+            <span>Border Countries:</span>
+            ${
+              element.borders === undefined
+                ? "<span>No borders</span>"
+                : `
+              <ul>
+                ${element.borders
+                  .map(
+                    (border) =>
+                      `<li class="border-countries-box">${border}</li>`
+                  )
+                  .join("")}
+              </ul>
+            `
+            }
+          </div>
+          
        </div>
      `;
       cardEL.appendChild(newCard);
@@ -49,9 +58,6 @@ const fetchText = async () => {
     console.log(error);
   }
 };
-
-
-
 
 toggleEl.addEventListener("click", () => {
   let currentTheme = document.documentElement.getAttribute("data-theme");
@@ -74,9 +80,7 @@ toggleEl.addEventListener("click", () => {
 
   document.documentElement.setAttribute("data-theme", targetTheme);
   localStorage.setItem("theme", targetTheme);
-})
-
-
+});
 
 window.addEventListener("load", () => {
   let theme = localStorage.getItem("theme");

@@ -32,11 +32,9 @@ span {
   font-weight: bold;
 }
 
-.header h2:hover{
+.header h2:hover {
   cursor: pointer;
 }
-
-
 
 .flag {
   width: 18rem;
@@ -106,7 +104,7 @@ input {
   box-shadow: 10px 10px 10px -5px var(--shadowColor);
   font-family: "Nunito Sans", sans-serif;
   background: url("http://kodyrabatowe.wp.pl/img/ico/search_gr.png") top left
-  no-repeat;
+    no-repeat;
 }
 
 .theme-box {
@@ -200,7 +198,6 @@ input {
   list-style-type: none;
   /* background-color: yellowgreen; */
   padding: 0rem;
-
 }
 
 .details-grid {
@@ -252,30 +249,6 @@ input {
   width: 30rem;
 }
 
-.neighboring-countries {
-  grid-column: 2/3;
- /* grid-row: 4/5;  */
-}
-
-.neighboring-countries {
-  list-style: none;
-  display: contents;
-  gap: 1em;
-}
-
-.border-countries-box {
-  font-weight: bold;
-  margin-top: 1em;
-  grid-column: 0.5;
-}
-
-.neighboring-countries  >p {
-  border: 2px solid #efefef;
-  border-radius: 2px;
-  /* padding: 0.25em 1em; */
-  align-self: center;
-}
-
 .neighboring-countries > p:hover {
   cursor: pointer;
 }
@@ -303,11 +276,8 @@ input {
   .text-grid > div:nth-child(odd) {
     grid-column: 1/5;
   }
-  .text-grid >div  {
+  .text-grid > div {
     gap: 3em;
-  }
-  .neighboring-countries  p {
-    padding: 0.25em;
   }
 
   .header h2 {
@@ -336,13 +306,6 @@ input {
   ::placeholder {
     text-align: center;
   }
-
-  .neighboring-countries div {
-    list-style: none;
-    display: grid;
-    gap: 4em;
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .description {
@@ -356,9 +319,8 @@ input {
   column-count: 2;
   margin-top: 30px;
   column-gap: 100px;
-
 }
-.description2 h2{
+.description2 h2 {
   margin-bottom: 12px;
 }
 
@@ -370,7 +332,48 @@ input {
 ul {
   margin-bottom: 30px;
 }
-.search-card{
-  margin-left:15px;
+.search-card {
+  margin-left: 15px;
   margin-bottom: 45px;
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .neighboring-countries {
+    flex-direction: col;
+    align-items: center;
+  }
+
+  .border-countries-box {
+    margin-right: 0;
+  }
+}
+
+.neighboring-countries {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* .neighboring-countries span {
+  margin-right: 10px;
+} */
+
+.neighboring-countries ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 10px;
+}
+
+.neighboring-countries li {
+  border: 1px solid #ccc;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  box-shadow: 10px 10px 10px -5px var(--shadowColor);
+  flex-direction: colu;
 }
