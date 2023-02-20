@@ -318,7 +318,8 @@ input {
   padding-bottom: 50px;
   column-count: 2;
   margin-top: 30px;
-  column-gap: 100px;
+  column-gap: 200px;
+  padding-right: 80px;
 }
 .description2 h2 {
   margin-bottom: 12px;
@@ -340,19 +341,25 @@ ul {
 /* For screens smaller than 768px */
 @media (max-width: 768px) {
   .neighboring-countries {
-    flex-direction: col;
+    flex-direction: row;
     align-items: center;
+    margin-top: 15px;
   }
 
   .border-countries-box {
     margin-right: 0;
+  }
+  .description2{
+   column-count: auto;
   }
 }
 
 .neighboring-countries {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: left;
+  margin-top: 15px;
+
 }
 
 /* .neighboring-countries span {
@@ -365,15 +372,21 @@ ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   font-size: 10px;
 }
 
 .neighboring-countries li {
   border: 1px solid #ccc;
-  padding: 3px 10px;
+  padding: 3px 8px;
   border-radius: 3px;
-  margin-right: 3px;
+  margin-right: 2px;
   margin-bottom: 5px;
   box-shadow: 10px 10px 10px -5px var(--shadowColor);
-  flex-direction: colu;
+  flex-direction: column;
+}
+.border-countries-box
+{
+flex-direction: row;
+margin-right: 0;
 }
