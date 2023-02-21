@@ -23,7 +23,6 @@ fetch('https://restcountries.com/v3.1/all')
   })
 
 filterByRegion.addEventListener('change', (e) => {
-  console.log(filterByRegion.value)
   fetch(`https://restcountries.com/v3.1/region/${filterByRegion.value}`)
     .then((res) => res.json())
     .then(renderCountries)
@@ -83,4 +82,4 @@ window.addEventListener('pageshow', (e) => {
     // Clear the value of the search input field
     searchInput.value = '';
   }
-});
+f});
