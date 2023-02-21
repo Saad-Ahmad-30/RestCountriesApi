@@ -54,7 +54,9 @@ function renderCountries(data) {
 searchInput.addEventListener('input',  (e) => {
   const filteredCountries = allCountriesData.filter((country) => country.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
   renderCountries(filteredCountries)
+
 })
+
 
 // themeChanger.addEventListener('click', () => {
 //   document.body.classList.toggle('dark')
@@ -75,3 +77,10 @@ function toggle() {
     : '<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode';
   themeChanger.innerHTML = buttonHtml;
 }
+window.addEventListener('pageshow', (e) => {
+  // Check if the current page is the main page
+  if (e.persisted || (window.performance && window.performance.navigation.type === 2)) {
+    // Clear the value of the search input field
+    searchInput.value = '';
+  }
+});

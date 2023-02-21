@@ -6,20 +6,27 @@ body {
   --background-color: hsl(0, 0%, 92%);
   --text-color: black;
   --elements-color: hsl(0, 0%, 92%);
+  --shadowColor: #dfdede;
+  --bgColor:white;
   margin: 0;
   font-family: Nunito, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
+  
 }
 
 body.dark {
   --background-color: hsl(207, 26%, 17%);
   --text-color: hsl(0, 0%, 92%);
   --elements-color: hsl(209, 23%, 22%);
+  --shadowColor: #0e0e0e;
+  --bgColor: hsl(209, 23%, 22%)
+  transition: 0.2s;
 }
 
 main {
   padding: 24px;
+
 }
 
 a {
@@ -53,14 +60,16 @@ a {
   max-width: 1200px;
   margin-top: 16px;
   display: flex;
-  gap: 64px;
+  gap: 3rem;
   flex-wrap: wrap;
   margin-inline: auto;
-  justify-content: space-between;
+  margin-left:auto;
+  justify-content: left;
 }
 
 .country-card {
   display: inline-block;
+
   width: 250px;
   border-radius: 8px;
   overflow: hidden;
@@ -145,10 +154,17 @@ a {
   box-sizing: border-box;
   outline: none;
   box-shadow: 10px 10px 10px -5px;
+  border: 0px;
 }
 select {
   height: 48px;
+  border-radius: 5px 0 0 5px;
 }
+option {
+  font-size: 16px;
+  border: 0px;
+}
+
 
 /* input[type="text"] {
   width: 400px;

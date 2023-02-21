@@ -13,6 +13,7 @@ const borderCountries = document.querySelector('.border-countries')
 const themeChanger = document.querySelector('.theme-changer')
 const body = document.body;
 
+
 themeChanger.addEventListener('click',toggle);
 
 
@@ -21,8 +22,8 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
   .then((res) => res.json())
   .then(([country]) => {
     flagImage.src = country.flags.png
-    flagImage.style.width = "288";
-    flagImage.style.height = "170";
+    flagImage.style.width = "400";
+    flagImage.style.height = "300";
     countryNameH1.innerText = country.name.common
     population.innerText = country.population.toLocaleString('en-IN')
     region.innerText = country.region

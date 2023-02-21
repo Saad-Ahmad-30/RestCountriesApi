@@ -1,3 +1,4 @@
+
 .country-details-container {
     max-width: 1200px;
     margin-inline: auto;
@@ -42,13 +43,20 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 8px;
+    
 }
-
+img{
+    width:600px;
+    height:370px;
+    object-fit:fill;
+    object-position:50% 50%;
+}
 .border-countries a {
     padding: 4px 16px;
-    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    box-shadow: 2px 0 4px 0px rgba(129, 123, 123, 0.2);
+    border-radius: 2px;
     font-size: 14px;
+    border: 2px solid rgba(158, 156, 156, 0.2);
 }
 
 @media(max-width: 940px) {
