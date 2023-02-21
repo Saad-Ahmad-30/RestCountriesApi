@@ -105,7 +105,7 @@ a {
 .search-container {
   box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
   max-width: 350px;
-  width: 70%;
+  width: 90%;
   border-radius: 4px;
   padding-left: 30px;
   color: #999;
@@ -117,20 +117,19 @@ a {
 .search-container input {
   border: none;
   outline: none;
-  padding: 22px;
-  width: 340px;
-  width: 80%;
+  /* padding: 22px; */
+  width: 90%;
+  height:48px;
   background-color: inherit;
   color: inherit;
 }
-
 .search-container input::placeholder {
   color: #999;
 }
 
 .filter-by-region {
   width: 180px;
-  padding: 16px;
+  padding: 12px;
   border: none;
   outline: none;
   box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
@@ -142,17 +141,18 @@ a {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px 0 0 5px;
-  width: 50px;
+  /* width: 50px; */
   box-sizing: border-box;
   outline: none;
   box-shadow: 10px 10px 10px -5px;
 }
 select {
-  height: 50px;
+  height: 48px;
 }
-input {
-  height: 50px;
-}
+
+/* input[type="text"] {
+  width: 400px;
+} */
 .nav-bar {
   position: fixed;
   top: 0;

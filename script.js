@@ -23,6 +23,7 @@ fetch('https://restcountries.com/v3.1/all')
   })
 
 filterByRegion.addEventListener('change', (e) => {
+  console.log(filterByRegion.value)
   fetch(`https://restcountries.com/v3.1/region/${filterByRegion.value}`)
     .then((res) => res.json())
     .then(renderCountries)
