@@ -58,7 +58,7 @@ searchInput.addEventListener('change',  (e) => {
 
 })
 
-//Filter by region
+
 //Filter by region
 filterByRegion.addEventListener('change', async (e) => {
   try {
