@@ -14,7 +14,11 @@ const themeChanger = document.querySelector('.theme-changer')
 const body = document.body;
 const API=`https://restcountries.com/v3.1`
 
-
+const fetchApiData = async (url) => {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
 
 
 
@@ -58,38 +62,36 @@ fetch(`${API}/name/${countryName}?fullText=true`)
 
     if (country.borders) {
       
-      country.borders.map((border) => {
-        fetch(`${API}/alpha/${border}`)
-          .then((res) => res.json())
-          .then(([borderCountry]) => {
-            const borderCountryTag = document.createElement('a')
-            borderCountryTag.innerText = borderCountry.name.common
-            borderCountryTag.href = `cardDetail.html?name=${borderCountry.name.common}`
-            borderCountries.append(borderCountryTag)
-          })
-      })
+      country.borders.map(async (border) => {
+        try {
+          const [borderCountry] = await fetchApiData(`${API}/alpha/${border}`);
+          const borderCountryTag = document.createElement('a');
+          borderCountryTag.innerText = borderCountry.name.common;
+          borderCountryTag.href = `cardDetail.html?name=${borderCountry.name.common}`;
+          borderCountries.append(borderCountryTag);
+        } catch (error) {
+          console.log(error);
+        }
+      });
     }else {
       borderCountries.innerHTML+=`<p class="no-border">No Border Countries</p>`
     }
   })
 }
 
-const themeGetter=()=>{
+const themeGetter= () => {
   const savedTheme = localStorage.getItem('theme') || 'light';
   if (savedTheme === 'dark') {
     body.classList.add('dark');
     themeChanger.innerHTML = '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode';
   }}
 
-  const toggleTheme=()=>{
+  const toggleTheme= () => {
     // Toggle the body class
-  
     body.classList.toggle('dark');
     // Update the theme preference in local storage
-  
     const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem('theme', currentTheme);
-  
     // Update the button text from dark to light OR Vice Versa
     const buttonHtml = body.classList.contains('dark')
       ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'

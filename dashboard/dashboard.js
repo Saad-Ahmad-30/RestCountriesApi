@@ -29,7 +29,7 @@ const fetchAndRenderData=async (url)=>{
 
 
 //Renders Cards Using API Data 
-function renderCards(data) {
+const renderCards=(data)=> {
   countriesContainer.innerHTML = ''
   data.map((country) => {
     const countryCard = document.createElement('a')
@@ -59,11 +59,16 @@ searchInput.addEventListener('change',  (e) => {
 })
 
 //Filter by region
-filterByRegion.addEventListener('change', (e) => {
-  fetch(`${API}/region/${filterByRegion.value}`)
-    .then((res) => res.json())
-    .then(renderCards)
-})
+//Filter by region
+filterByRegion.addEventListener('change', async (e) => {
+  try {
+    const data = await fetchApiData(`${API}/region/${filterByRegion.value}`);
+    renderCards(data);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 
 // Get the stored theme from local storage, or default to light
 const themeGetter=()=>{
