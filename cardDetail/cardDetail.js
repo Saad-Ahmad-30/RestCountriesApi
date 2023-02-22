@@ -12,15 +12,20 @@ const languages = document.querySelector('.languages')
 const borderCountries = document.querySelector('.border-countries')
 const themeChanger = document.querySelector('.theme-changer')
 const body = document.body;
-themeChanger.addEventListener('click',toggle);
+const API=`https://restcountries.com/v3.1`
 
 
-fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
+
+
+
+
+const showCardDetail=()=>{
+fetch(`${API}/name/${countryName}?fullText=true`)
   .then((res) => res.json())
   .then(([country]) => {
     flagImage.src = country.flags.png
-    flagImage.style.width = "400";
-    flagImage.style.height = "300";
+    flagImage.style.width = "300";
+    flagImage.style.height = "150";
     countryNameH1.innerText = country.name.common
     population.innerText = country.population.toLocaleString('en-IN')
     region.innerText = country.region
@@ -53,41 +58,53 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 
     if (country.borders) {
       
-      country.borders.forEach((border) => {
-        fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+      country.borders.map((border) => {
+        fetch(`${API}/alpha/${border}`)
           .then((res) => res.json())
           .then(([borderCountry]) => {
-            // console.log(borderCountry)
             const borderCountryTag = document.createElement('a')
             borderCountryTag.innerText = borderCountry.name.common
-            borderCountryTag.href = `country.html?name=${borderCountry.name.common}`
+            borderCountryTag.href = `cardDetail.html?name=${borderCountry.name.common}`
             borderCountries.append(borderCountryTag)
           })
       })
-  
+    }else {
+      borderCountries.innerHTML+=`<p class="no-border">No Border Countries</p>`
+    }
   })
+}
 
-
-
+const themeGetter=()=>{
   const savedTheme = localStorage.getItem('theme') || 'light';
   if (savedTheme === 'dark') {
     body.classList.add('dark');
-  
     themeChanger.innerHTML = '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode';
+  }}
+
+  const toggleTheme=()=>{
+    // Toggle the body class
   
+    body.classList.toggle('dark');
+    // Update the theme preference in local storage
+  
+    const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', currentTheme);
+  
+    // Update the button text from dark to light OR Vice Versa
+    const buttonHtml = body.classList.contains('dark')
+      ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'
+      : '<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode';
+    themeChanger.innerHTML = buttonHtml;
   }
+  
 
 
-function toggle (){
-  // Toggle the body class
-  body.classList.toggle('dark');
-  // Update the theme preference in local storage
-  const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
-  localStorage.setItem('theme', currentTheme);
+/*Functions are being called here*/
+themeGetter();
+themeChanger.addEventListener('click',toggleTheme);
+showCardDetail();
 
-  // Update the button text
-  const buttonHtml = body.classList.contains('dark')
-    ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'
-    : '<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode';
-  themeChanger.innerHTML = buttonHtml;
-}
+
+
+
+
