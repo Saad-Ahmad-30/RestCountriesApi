@@ -64,12 +64,20 @@ a {
   flex-wrap: wrap;
   margin-inline: auto;
   margin-left:auto;
-  justify-content: left;
+  justify-content: center;
+  
+}
+.countries-container::after {
+  content: "";
+  flex: auto;
 }
 
-.country-card {
-  display: inline-block;
 
+.country-card {
+  /* display: inline-block; */
+  margin: auto;
+  /* display: grid; */
+  /* grid-auto-flow: row; */
   width: 250px;
   border-radius: 8px;
   overflow: hidden;
@@ -77,7 +85,11 @@ a {
   box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
   background-color: var(--elements-color);
+  height:370px;
 }
+
+
+
 
 .country-card:hover {
   transform: scale(1.03);
