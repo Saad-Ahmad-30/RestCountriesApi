@@ -5,11 +5,11 @@
 body {
   --background-color: hsl(0, 0%, 92%);
   --text-color: black;
-  --elements-color: hsl(0, 0%, 92%);
+  --elements-color: white;
   --shadowColor: #dfdede;
   --bgColor:white;
   margin: 0;
-  font-family: Nunito, sans-serif;
+  font-family:"Nunito Sans";
   background-color: var(--background-color);
   color: var(--text-color);
   
@@ -21,7 +21,7 @@ body.dark {
   --elements-color: hsl(209, 23%, 22%);
   --shadowColor: #0e0e0e;
   --bgColor: hsl(209, 23%, 22%)
-  transition: 0.2s;
+   transition: 0.15s;
 }
 
 main {
@@ -46,10 +46,12 @@ a {
   justify-content: space-between;
   max-width: 1200px;
   margin-inline: auto;
+  padding:0 2rem;
 }
 
 .title {
-  font-weight: 800;
+  font-weight: 700;
+  font-size: 27px;
 }
 
 .theme-changer {
@@ -62,28 +64,23 @@ a {
   display: flex;
   gap: 3rem;
   flex-wrap: wrap;
-  margin-inline: auto;
-  margin-left:auto;
+  margin: auto;
   justify-content: center;
   
 }
-.countries-container::after {
+/* .countries-container::after {
   content: "";
   flex: auto;
-}
-
+  
+} */
 
 .country-card {
-  /* display: inline-block; */
-  margin: auto;
-  /* display: grid; */
-  /* grid-auto-flow: row; */
+  /* margin: 1; */
   width: 250px;
   border-radius: 8px;
   overflow: hidden;
   padding-bottom: 24px;
   box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
   background-color: var(--elements-color);
   height:370px;
 }
@@ -103,6 +100,7 @@ a {
 
 .card-text {
   padding-inline: 16px;
+
 }
 
 .card-text p {
@@ -111,6 +109,7 @@ a {
 
 .country-card img {
   width: 100%;
+ box-shadow: 0 0 1px;
 }
 
 .search-filter-container {
@@ -121,6 +120,7 @@ a {
   display: flex;
   justify-content: space-between;
   gap: 24px;
+  padding:0 2rem;
 }
 
 .search-container {
@@ -183,10 +183,6 @@ a {
 }
 
 @media (max-width: 768px) {
-  .countries-container {
-    justify-content: center;
-  }
-
   .title {
     font-size: 16px;
   }
@@ -203,6 +199,9 @@ a {
   }
 }
 
+
+
+
 /* @media (min-width: 1200px) {
   main {
     max-width: 1400px;
@@ -216,7 +215,7 @@ a {
   .countries-container {
     max-width: 1400px;
   }
-} */
+*/
 
 @media (min-width: 1024px) {
   .search-filter-container {
@@ -232,4 +231,6 @@ a {
   .filter-by-region {
     width: 200px;
   }
+
+
 }

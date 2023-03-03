@@ -56,23 +56,31 @@ fetch(`${API}/name/${countryName}?fullText=true`)
     }
 
     if (country.languages) {
-      languages.innerText = Object.values(country.languages).join(', ')
+      languages.innerText = Object.values(country.languages).sort().join(', ')
     }
 
 
     if (country.borders) {
-      
+    
+      const countries=[];
       country.borders.map(async (border) => {
         try {
           const [borderCountry] = await fetchApiData(`${API}/alpha/${border}`);
-          const borderCountryTag = document.createElement('a');
-          borderCountryTag.innerText = borderCountry.name.common;
-          borderCountryTag.href = `cardDetail.html?name=${borderCountry.name.common}`;
-          borderCountries.append(borderCountryTag);
+          countries.push(borderCountry.name.common);
         } catch (error) {
           console.log(error);
         }
       });
+      setTimeout(()=>{
+        countries.sort();
+        for(border of countries){
+          const borderCountryTag = document.createElement('a');
+              borderCountryTag.innerText = border;
+              borderCountryTag.href = `cardDetail.html?name=${border}`;
+              borderCountries.append(borderCountryTag);
+        }
+      },1000)
+     
     }else {
       borderCountries.innerHTML+=`<p class="no-border">No Border Countries</p>`
     }

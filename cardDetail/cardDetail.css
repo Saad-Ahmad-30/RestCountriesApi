@@ -1,3 +1,26 @@
+body {
+    --background-color: hsl(0, 0%, 92%);
+    --text-color: black;
+    --elements-color: white;
+    --shadowColor: #dfdede;
+    --bgColor:white;
+    --back-btn: rgba(0,0,0,0.2);
+    margin: 0;
+    font-family:"Nunito Sans";
+    background-color: var(--background-color);
+    color: var(--text-color);
+    
+  }
+  
+  body.dark {
+    --background-color: hsl(207, 26%, 17%);
+    --text-color: hsl(0, 0%, 92%);
+    --elements-color: hsl(209, 23%, 22%);
+    --shadowColor: #0e0e0e;
+    --back-btn: rgba(0,0,0,0.4);
+    --bgColor: hsl(209, 23%, 22%)
+    transition: 0.2s;
+  }
 
 .country-details-container {
     max-width: 1200px;
@@ -7,9 +30,10 @@
 
 .back-button {
     padding: 6px 24px;
-    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--elements-color);
     border-radius: 4px;
     cursor: pointer;
+    box-shadow: 0 0 10px var(--back-btn)
 }
 
 .country-details {
@@ -20,8 +44,8 @@
 }
 
 .country-details img {
-    width: 40%;
-    border: 1px solid #ddd;
+    width: 400px;
+    height:270px
 }
 
 .details-text {
@@ -32,6 +56,11 @@
     max-height: 180px;
     flex-wrap: wrap;
 }
+.title {
+    font-weight: 700;
+    font-size: 27px;
+   
+  }
 
 .details-text p {
     margin: 0;
@@ -43,15 +72,16 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 8px;
-    
+   
 }
 
 .border-countries a {
     padding: 4px 16px;
-    box-shadow: 2px 0 4px 0px rgba(129, 123, 123, 0.2);
+    background-color: var(--elements-color);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
     border-radius: 2px;
     font-size: 14px;
-    border: 2px solid rgba(158, 156, 156, 0.2);
+    
 }
 
 @media(max-width: 940px) {
