@@ -20,70 +20,67 @@ const fetchApiData = async (url) => {
   return data;
 };
 
-const showCardDetail = () => {
-  fetch(`${API}/name/${countryName}?fullText=true`)
-    .then((res) => res.json())
-    .then(([country]) => {
-      flagImage.src = country.flags.png;
-      flagImage.style.width = "300";
-      flagImage.style.height = "150";
-      countryNameH1.innerText = country.name.common;
-      population.innerText = country.population.toLocaleString("en-IN");
-      region.innerText = country.region;
-      topLevelDomain.innerText = country.tld.join(", ");
+const showCardDetail = async () => {
+  try {
+    const response = await fetch(`${API}/name/${countryName}?fullText=true`);
+    const [country] = await response.json();
+    console.log(...[country]);
+    flagImage.src = country.flags.png;
+    flagImage.style.width = "300";
+    flagImage.style.height = "150";
+    countryNameH1.innerText = country.name.common;
+    population.innerText = country.population.toLocaleString("en-IN");
+    region.innerText = country.region;
+    topLevelDomain.innerText = country.tld.join(", ");
 
-      if (country.capital) {
-        capital.innerText = country.capital?.[0];
-      }
+    if (country.capital) {
+      capital.innerText = country.capital?.[0];
+    }
 
-      if (country.subregion) {
-        subRegion.innerText = country.subregion;
-      }
+    if (country.subregion) {
+      subRegion.innerText = country.subregion;
+    }
 
-      if (country.name.nativeName) {
-        nativeName.innerText = Object.values(country.name.nativeName)[0].common;
-      } else {
-        nativeName.innerText = country.name.common;
-      }
+    if (country.name.nativeName) {
+      nativeName.innerText = Object.values(country.name.nativeName)[0].common;
+    } else {
+      nativeName.innerText = country.name.common;
+    }
 
-      if (country.currencies) {
-        currencies.innerText = Object.values(country.currencies)
-          .map((currency) => currency.name)
-          .join(", ");
-      }
+    if (country.currencies) {
+      currencies.innerText = Object.values(country.currencies)
+        .map((currency) => currency.name)
+        .join(", ");
+    }
 
-      if (country.languages) {
-        languages.innerText = Object.values(country.languages)
-          .sort()
-          .join(", ");
-      }
+    if (country.languages) {
+      languages.innerText = Object.values(country.languages)
+        .sort()
+        .join(", ");
+    }
 
-      if (country.borders) {
-        const countries = [];
-        country.borders.map(async (border) => {
-          try {
-            const [borderCountry] = await fetchApiData(
-              `${API}/alpha/${border}`
-            );
-            countries.push(borderCountry.name.common);
-          } catch (error) {
-            console.log(error);
-          }
-        });
-        setTimeout(() => {
-          countries.sort();
-          for (border of countries) {
-            const borderCountryTag = document.createElement("a");
-            borderCountryTag.innerText = border;
-            borderCountryTag.href = `cardDetail.html?name=${border}`;
-            borderCountries.append(borderCountryTag);
-          }
-        }, 1000);
-      } else {
-        borderCountries.innerHTML += `<p class="no-border">No Border Countries</p>`;
+    if (country.borders) {
+      const countries = [];
+      for (const border of country.borders) {
+        const borderCountry = await fetchApiData(`${API}/alpha/${border}`);
+        countries.push(borderCountry.name.common);
       }
-    });
+      
+      countries.sort();
+      for (const border of countries) {
+        const borderCountryTag = document.createElement("a");
+        borderCountryTag.innerText = border;
+        borderCountryTag.href = `cardDetail.html?name=${border}`;
+        borderCountries.append(borderCountryTag);
+      }
+    } else {
+      borderCountries.innerHTML += `<p class="no-border">No Border Countries</p>`;
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 
 const themeGetter = () => {
   const savedTheme = localStorage.getItem("theme") || "light";

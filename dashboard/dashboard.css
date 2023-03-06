@@ -173,6 +173,9 @@ a {
     border-right:12px solid var(--elements-color);
    
 }
+.filter-by-region option{
+  font-size: 16px;
+}
 #magnify{
   margin-right:10px;
   color:var(--mgColor);

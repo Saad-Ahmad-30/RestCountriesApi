@@ -5,6 +5,7 @@ const themeChanger = document.querySelector(".theme-changer");
 const API = "https://restcountries.com/v3.1";
 let allCountriesData;
 const body = document.body;
+
 const fetchApiData = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
@@ -19,6 +20,7 @@ const fetchAndRenderData = async (url) => {
     const data = await fetchApiData(url);
     renderCards(data);
     allCountriesData = data;
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
@@ -65,7 +67,7 @@ searchInput.addEventListener("change", (e) => {
 //   }
 // });
 // Check if the user is coming from a different page
-if (performance.navigation.type === 1) {
+if (performance.getEntriesByType("navigation")[0].type==="reload") {
   localStorage.removeItem("regionFilter");
 }
 
@@ -80,6 +82,7 @@ window.addEventListener("load", () => {
 filterByRegion.addEventListener("change", async (e) => {
   try {
     localStorage.setItem("regionFilter", filterByRegion.value);
+    console.log(`Region value ${filterByRegion.value}`);
     const data = await fetchApiData(`${API}/region/${filterByRegion.value}`);
     renderCards(data);
   } catch (error) {
