@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../dashboard/dashboard.css" />
@@ -37,20 +37,22 @@
       </header>
     </div>
     <main>
-      <div class="search-filter-container">
-        <div class="search-container">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Search for a country..." />
+      <div class="search-filter-container" >
+        <div class="search-container" >
+          <i class="fa-solid fa-magnifying-glass" id="magnify"></i>
+          <input class="search" type="text" placeholder="Search for a country..." />
         </div>
+       
         <select class="filter-by-region">
           <option hidden>Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="America">America</option>
-          <option value="Antarctic">Antarctic</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
+          <option value="africa">Africa</option>
+          <option value="america">America</option>
+          <option value="antarctic">Antarctic</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="oceania">Oceania</option>
         </select>
+      
       </div>
       <div class="countries-container"></div>
     </main>
