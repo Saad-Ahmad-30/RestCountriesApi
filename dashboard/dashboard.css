@@ -1,3 +1,8 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 * {
   box-sizing: border-box;
 }
@@ -12,7 +17,7 @@ body {
   font-family:"Nunito Sans";
   background-color: var(--background-color);
   color: var(--text-color);
-  
+  font-weight: 600;
 }
 
 body.dark {
@@ -56,6 +61,7 @@ a {
 
 .theme-changer {
   cursor: pointer;
+  font-weight: bold;
 }
 
 .countries-container {
@@ -82,11 +88,8 @@ a {
   padding-bottom: 24px;
   box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
   background-color: var(--elements-color);
-  height:370px;
+  height:350px;
 }
-
-
-
 
 .country-card:hover {
   transform: scale(1.03);
@@ -94,7 +97,7 @@ a {
 }
 
 .card-title {
-  font-size: 24px;
+  font-size: 20px;
   margin-block: 16px;
 }
 
@@ -129,7 +132,6 @@ a {
   width: 90%;
   border-radius: 4px;
   padding-left: 30px;
-  color: #999;
   overflow: hidden;
   background-color: var(--elements-color);
   color: var(--text-color);
@@ -138,17 +140,32 @@ a {
 .search-container input {
   border: none;
   outline: none;
-  /* padding: 22px; */
   width: 90%;
   height:48px;
-  background-color: inherit;
-  color: inherit;
+  color:var(--text-color);
+  background-color: var(--elements-color);
+  
 }
 .search-container input::placeholder {
   color: #999;
 }
+.filter-by-region{
+    width: 180px;
+    min-width: 15ch;
+    max-width: 30ch;
+    border-radius: 0.25em;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: var(--elements-color);
+    color:var(--text-color);
+    outline: none;
+    box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+}
 
-.filter-by-region {
+
+/* .filter-by-region {
   width: 180px;
   padding: 12px;
   border: none;
@@ -157,17 +174,18 @@ a {
   border-radius: 4px;
   background-color: var(--elements-color);
   color: var(--text-color);
-}
-.filter-by-region select {
+} */
+/* .filter-by-region select {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px 0 0 5px;
-  /* width: 50px; */
+  width: 50px;
   box-sizing: border-box;
   outline: none;
   box-shadow: 10px 10px 10px -5px;
   border: 0px;
-}
+} */
+
 
 
 .nav-bar {
@@ -196,6 +214,14 @@ a {
 
   .search-filter-container {
     flex-direction: column;
+    width:100%;
+  }
+  /* .search-container{
+    padding: 0rem 0rem 0rem 6rem;
+  } */
+  .countries-container{
+  justify-content: left;
+  padding-left:36px;
   }
 }
 

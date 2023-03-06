@@ -64,10 +64,15 @@ body {
 
 .details-text p {
     margin: 0;
+    
+}
+.details-text span {
+    color:var(--text-color);
+    font-weight: lighter;
 }
 
 .border-countries {
-    margin-top: 48px;
+    margin-top: 20px;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -81,7 +86,7 @@ body {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
     border-radius: 2px;
     font-size: 14px;
-    
+    color:var(--text-color);
 }
 
 @media(max-width: 940px) {
@@ -90,6 +95,7 @@ body {
         align-items: flex-start;
         margin-top: 32px;
         gap: 16px;
+        
     }
 
     .details-text {
