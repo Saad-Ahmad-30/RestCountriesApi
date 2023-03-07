@@ -53,7 +53,8 @@ const renderCards = (data) => {
 //Search by Country Full Name or Partial Name
 searchInput.addEventListener("change", (e) => {
   const filteredCountries = allCountriesData.filter((country) =>
-    country.name.common.toLowerCase().includes(e.target.value.toLowerCase())
+    country.name.common.toString().toLowerCase().includes(e.target.value.toLowerCase()),
+    console.log(e.target.value.toLowerCase())
   );
   renderCards(filteredCountries);
 });
