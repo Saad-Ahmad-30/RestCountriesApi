@@ -88,7 +88,15 @@ body {
     font-size: 14px;
     color:var(--text-color);
 }
+.part-1{
+    margin-top:5px;
+    margin:0;
 
+}
+.part-2{
+    margin:0;
+    
+}
 @media(max-width: 940px) {
     .country-details {
         flex-direction: column;
@@ -105,6 +113,15 @@ body {
     .country-details img {
         width: 100%;
         max-width: 400px;
+    }
+    .part-1{
+        margin-bottom:2rem;
+    }
+    .part-2{
+        margin-bottom: 1rem;
+    }
+    .part-1 >p{
+        margin-bottom: 2px;
     }
 
 }
